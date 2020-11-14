@@ -1,0 +1,33 @@
+.nav {
+    display: flex;
+    box-sizing: border-box;
+    margin:0px;
+    padding: 0px;
+    line-height: 1.6;
+    height: 10vh;
+}
+
+.navLinks {
+    display: flex;
+    box-sizing: border-box;
+    list-style: none;
+    height: 5vh;
+    margin: 0px;
+}
+
+
+.navLinks li * {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 15px;
+    font-size: 1.6em;
+}
+
+.nav img {
+    display: inline-block;
+    padding: calc(5vh - 18px) 0;
+justify-content: space-around;
+margin-right: 30px;
+}
