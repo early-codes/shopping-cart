@@ -1,10 +1,20 @@
 import React from 'react';
+import Item from '../item/Item'
+import './Home.css'
 
 const Home = () => {
 
     return (
         <div className="component homeComponent">
-            <h1>Home Component</h1>
+            <div className="itemContainer">
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+            </div>
         </div>
     )
 
