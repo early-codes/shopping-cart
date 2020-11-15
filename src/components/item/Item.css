@@ -1,0 +1,18 @@
+.item {
+    height: 55vh;
+    width: 17vw;
+    text-align: center;
+    display: inline-block;
+    margin: 1vh 1vw;
+    background-color: blueviolet;
+}
+
+.item img {
+    height: 35vh;
+    width: 13vw;
+}
+
+.item h3 {
+    text-align: center;
+    margin: 1vh auto;
+}
