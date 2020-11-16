@@ -1,23 +1,25 @@
 import React from 'react';
 import './Item.css'
 
+
 const Item = (props) => {
 
-    const increase = () => { }
+    const increase = () => { console.log(props.data.image) }
     const decrease = () => { }
 
 
+
     return (
-        <div className="item">
-            <h3>ITEM</h3>
+        <div key={props.data.title} className="item">
+            <h3>{props.data.title}</h3>
             <div>
-                <img src={props.image} alt={props.title} />
+                <img src={props.data.image} alt={props.data.title} />
             </div>
-            <h3><span style={{ fontWeight: "normal" }}>Price: {props.price}</span></h3>
+            <h3><span style={{ fontWeight: "normal" }}>Price: {props.data.price}</span></h3>
             <div>
-                <input type="button" onClick={increase} />
-                <input type="text" />
-                <input type="button" onClick={decrease} />
+                <input type="button" onClick={increase} value="-" />
+                <input type="text" value="0" style={{width:"20px", textAlign:"center"}} />
+                <input type="button" onClick={decrease} value="+" />
             </div>
 
         </div>
