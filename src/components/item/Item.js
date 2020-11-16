@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Item.css'
 
 
 const Item = (props) => {
 
-    const increase = () => { console.log(props.data.image) }
-    const decrease = () => { }
+    const [quantity, setQuantity] = useState(0)
+
+    const increase = () => { setQuantity(quantity + 1) }
+    const decrease = () => { (quantity > 0) ? setQuantity(quantity - 1) : setQuantity(quantity) }
 
 
 
     return (
-        <div key={props.data.title} className="item">
+        <div className="item">
             <h3>{props.data.title}</h3>
             <div>
                 <img src={props.data.image} alt={props.data.title} />
             </div>
             <h3><span style={{ fontWeight: "normal" }}>Price: {props.data.price}</span></h3>
             <div>
-                <input type="button" onClick={increase} value="-" />
-                <input type="text" value="0" style={{width:"20px", textAlign:"center"}} />
-                <input type="button" onClick={decrease} value="+" />
+                <input type="button" onClick={decrease} value="-" />
+                <input type="text" value={quantity} onChange={() => { }} style={{ width: "20px", textAlign: "center" }} />
+                <input type="button" onClick={increase} value="+" />
             </div>
 
         </div>

@@ -25,13 +25,13 @@ const Home = () => {
 
     const items = onSale.map((item) => {
         return (
-            <Item data={item} />
+            <Item key={item.title} data={item} />
         )
     })
 
     return (
         <div className="component homeComponent">
-            <div className="itemContainer" style={{textAlign:"center"}}>
+            <div className="itemContainer" style={{ textAlign: "center" }}>
                 {items}
             </div>
         </div>
