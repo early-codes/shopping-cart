@@ -11,6 +11,7 @@ function App() {
 
   const getData = (_data) => {
     data = _data
+    
   }
 
   return (

@@ -15,7 +15,7 @@ const Item = (props) => {
             <div>
                 <img src={props.data.image} alt={props.data.title} />
             </div>
-            <h3><span style={{ fontWeight: "normal" }}>Price: {props.data.price}</span></h3>
+            <h3><span style={{ fontWeight: "normal" }}>Price: {props.data.price}$</span></h3>
             <div>
                 <input type="button" onClick={decrease} value="-" />
                 <input type="text" value={quantity} onChange={(event) => {setQuantity(event.target.value)}} style={{ width: "20px", textAlign: "center" }} />

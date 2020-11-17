@@ -9,19 +9,19 @@ const Home = (props) => {
         {
             title: "Pea",
             image: "../../img/pea.jpg",
-            price: "5$",
+            price: 5,
             quantity: 0
         },
         {
             title: "Chickpea",
             image: "../../img/chickpea.jpg",
-            price: "4$",
+            price: 4,
             quantity: 0
         },
         {
             title: "Lentil",
             image: "../../img/lentils.jpg",
-            price: "7$",
+            price: 7,
             quantity: 0,
         }
     ]
@@ -49,7 +49,7 @@ const Home = (props) => {
             <div className="itemContainer" style={{ textAlign: "center" }}>
                 {items}
             </div>
-            <input type="button" onClick={props.dataGetter(onSale)} />
+            <input type="button" onClick={()=>{props.dataGetter(onSale); props.history.push("/cart")}} />
         </div>
     )
 
