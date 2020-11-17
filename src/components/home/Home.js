@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from '../item/Item'
 import './Home.css'
 
 
-const Home = () => {
+const Home = (props) => {
 
-    const onSale = [
+    let onSale = [
         {
             title: "Pea",
             image: "../../img/pea.jpg",
@@ -27,8 +27,14 @@ const Home = () => {
     ]
 
     const quantityHandler = (title, value) => {
-        
+        onSale.forEach(item => {
+            if (item.title === title) {
+                item.quantity = value
+            }
+        })
     }
+
+
 
 
     const items = onSale.map((item) => {
@@ -43,6 +49,7 @@ const Home = () => {
             <div className="itemContainer" style={{ textAlign: "center" }}>
                 {items}
             </div>
+            <input type="button" onClick={props.dataGetter(onSale)} />
         </div>
     )
 
