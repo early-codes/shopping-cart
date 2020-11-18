@@ -34,9 +34,6 @@ const Home = (props) => {
         })
     }
 
-
-
-
     const items = onSale.map((item) => {
         return (
             <Item key={item.title} data={item} clickHandler={quantityHandler} />
@@ -49,7 +46,7 @@ const Home = (props) => {
             <div className="itemContainer" style={{ textAlign: "center" }}>
                 {items}
             </div>
-            <input type="button" onClick={()=>{props.dataGetter(onSale); props.history.push("/cart")}} />
+            <input id="checkoutButton" value="Checkout" type="button" onClick={() => { props.dataGetter(onSale); props.history.push("/cart") }} />
         </div>
     )
 

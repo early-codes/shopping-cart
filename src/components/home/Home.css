@@ -1,4 +1,12 @@
 .itemContainer {
-    height: 90vh;
     margin: 5vh;
 }
+
+#checkoutButton {
+    position: absolute ;
+    right: 400px;
+    border: none;
+    background-color:  rgb(138, 145, 151, 0.5);;
+    height: 3em;
+}
+

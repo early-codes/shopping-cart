@@ -1,17 +1,17 @@
 .item {
-    height: 55vh;
-    width: 17vw;
+    height: 50vh;
+    width: 16vw;
     text-align: center;
     display: inline-block;
     margin: 1vh 1vw;
-    background-color: blueviolet;
+    background-color: rgb(138, 145, 151, 0.5);;
     min-width: 250px;
     min-height: 300px;
 }
 
 .item img {
-    height: 35vh;
-    width: 13vw;
+    height: 30vh;
+    width: 12vw;
     min-width: calc(250px * 13 / 17);
     min-height: calc(300px * 35 / 55);
 }
@@ -19,4 +19,11 @@
 .item h3 {
     text-align: center;
     margin: 1vh auto;
+}
+
+input {
+    box-sizing: border-box;
+    height: 20px;
+    border: 1px solid black;
+    background-color: transparent;
 }

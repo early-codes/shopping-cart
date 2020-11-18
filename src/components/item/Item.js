@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Item.css'
 
 
@@ -9,6 +9,10 @@ const Item = (props) => {
     const increase = () => { setQuantity(quantity + 1) }
     const decrease = () => { (quantity > 0) ? setQuantity(quantity - 1) : setQuantity(quantity) }
 
+    useEffect(() => {
+        props.clickHandler(props.data.title, quantity)
+    }, [quantity, props])
+
     return (
         <div className="item">
             <h3>{props.data.title}</h3>
@@ -18,12 +22,11 @@ const Item = (props) => {
             <h3><span style={{ fontWeight: "normal" }}>Price: {props.data.price}$</span></h3>
             <div>
                 <input type="button" onClick={decrease} value="-" />
-                <input type="text" value={quantity} onChange={(event) => {setQuantity(event.target.value)}} style={{ width: "20px", textAlign: "center" }} />
+                <input type="text" value={quantity} onChange={(event) => { setQuantity(event.target.value) }} style={{ width: "20px", textAlign: "center" }} />
                 <input type="button" onClick={increase} value="+" />
             </div>
-            <div>
-                <input type="button" onClick={props.clickHandler(props.data.title, quantity)} />
-            </div>
+            <h4>{props.data.price * quantity}$</h4>
+
 
         </div>
     )
