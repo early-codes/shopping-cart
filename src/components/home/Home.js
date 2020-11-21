@@ -1,45 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import Item from '../item/Item'
+import React, { useContext, useEffect } from 'react';
+import Item from '../item/Item';
+import { OnSaleContext } from '../context';
+
 import './Home.css'
 
 
 const Home = (props) => {
-
-    let onSale = [
-        {
-            title: "Pea",
-            image: "../../img/pea.jpg",
-            price: 5,
-            quantity: 0
-        },
-        {
-            title: "Chickpea",
-            image: "../../img/chickpea.jpg",
-            price: 4,
-            quantity: 0
-        },
-        {
-            title: "Lentil",
-            image: "../../img/lentils.jpg",
-            price: 7,
-            quantity: 0,
-        }
-    ]
+    const [onSale, setOnSale] = useContext(OnSaleContext)
 
     const quantityHandler = (title, value) => {
-        onSale.forEach(item => {
+        setOnSale(onSale.forEach(item => {
             if (item.title === title) {
                 item.quantity = value
             }
-        })
+        }))
+        sendBasket(onSale)
     }
 
-    const items = onSale.map((item) => {
+
+    const sendBasket = (on_Sale) => {
+        props.basketGetter(
+            on_Sale.filter(item => item.quantity > 0).length
+        )
+    }
+
+    let _onSale = [...onSale]
+    let items = _onSale.map((item) => {
+        console.log(onSale)
         return (
             <Item key={item.title} data={item} clickHandler={quantityHandler} />
         )
     })
-
 
     return (
         <div className="component homeComponent">

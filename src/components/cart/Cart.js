@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CartItems from "./cartItems/CartItems"
 
 const Cart = (props) => {
@@ -25,9 +25,6 @@ const Cart = (props) => {
             .reduce((sum, one) => sum + one)
     }
 
-    useEffect(() => {
-        console.log(props.data)
-    })
 
     return (
         <div className="component cartComponent">
