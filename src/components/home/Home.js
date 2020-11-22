@@ -8,25 +8,38 @@ import './Home.css'
 const Home = (props) => {
     const [onSale, setOnSale] = useContext(OnSaleContext)
 
-    const quantityHandler = (title, value) => {
-        setOnSale(onSale.forEach(item => {
-            if (item.title === title) {
-                item.quantity = value
+    const quantityHandler = async (title, value) => {
+        let _onSale = [...onSale]
+        for (let item in _onSale) {
+            if (_onSale[item].title === title) {
+                _onSale[item].quantity = value
             }
-        }))
+        }
+
+
+        // _onSale = _onSale.forEach(item => {
+        //     if (item.title === title) {
+        //         item.quantity = value
+        //     }
+        // })
+        setOnSale(_onSale)
+        // await setOnSale(onSale.forEach(item => {
+        //     if (item.title === title) {
+        //         item.quantity = value
+        //     }
+        // }))
         sendBasket(onSale)
     }
 
 
-    const sendBasket = (on_Sale) => {
+    const sendBasket = (onSale) => {
         props.basketGetter(
-            on_Sale.filter(item => item.quantity > 0).length
+            onSale.filter(item => item.quantity > 0).length
         )
     }
 
-    let _onSale = [...onSale]
-    let items = _onSale.map((item) => {
-        console.log(onSale)
+
+    let items = onSale.map((item) => {
         return (
             <Item key={item.title} data={item} clickHandler={quantityHandler} />
         )

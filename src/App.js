@@ -5,18 +5,20 @@ import Home from './components/home/Home'
 import { OnSaleProvider } from './components/context'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { useState } from 'react';
 
 function App() {
 
+  const [basket, setBasket] = useState(0)
+
   let data = []
-  let basket = 0
 
   const getData = (_data) => {
     data = _data
   }
 
   const getBasket = (_basket) => {
-    basket = _basket
+    setBasket(_basket)
   }
 
 

@@ -33,3 +33,20 @@
     padding: 8px 0;
     margin: auto 30px;
 }
+
+.basketQuantity {
+    position: absolute;
+    right: 25px;
+    background-color: red;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.basketQuantity p {
+    margin: 0 auto;
+    color: white;
+    font-size: small;
+}
