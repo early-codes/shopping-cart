@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import './Nav.css'
 
 const Nav = (props) => {
-
-    useEffect(() => {
-        console.log(props)
-    }, [props])
 
     return (
         <div className="nav">
@@ -17,6 +13,10 @@ const Nav = (props) => {
             <div className="cartIcon">
                 <Link to="/cart"><img src="https://img.pngio.com/shopping-cart-icon-free-download-png-and-vector-cart-icon-png-256_256.png" alt="Shopping Cart Icon - Free Download, PNG and Vector" style={{ width: "25px", height: "25px" }}></img></Link>
             </div>
+            {(props.data > 0) ?
+                <div className="basketQuantity"><p>{props.data}</p></div> :
+                null}
+
         </div>
     )
 }

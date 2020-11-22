@@ -1,45 +1,49 @@
-import React, { useEffect, useState } from 'react';
-import Item from '../item/Item'
+import React, { useContext, useEffect } from 'react';
+import Item from '../item/Item';
+import { OnSaleContext } from '../context';
+
 import './Home.css'
 
 
 const Home = (props) => {
+    const [onSale, setOnSale] = useContext(OnSaleContext)
 
-    let onSale = [
-        {
-            title: "Pea",
-            image: "../../img/pea.jpg",
-            price: 5,
-            quantity: 0
-        },
-        {
-            title: "Chickpea",
-            image: "../../img/chickpea.jpg",
-            price: 4,
-            quantity: 0
-        },
-        {
-            title: "Lentil",
-            image: "../../img/lentils.jpg",
-            price: 7,
-            quantity: 0,
-        }
-    ]
-
-    const quantityHandler = (title, value) => {
-        onSale.forEach(item => {
-            if (item.title === title) {
-                item.quantity = value
+    const quantityHandler = async (title, value) => {
+        let _onSale = [...onSale]
+        for (let item in _onSale) {
+            if (_onSale[item].title === title) {
+                _onSale[item].quantity = value
             }
-        })
+        }
+
+
+        // _onSale = _onSale.forEach(item => {
+        //     if (item.title === title) {
+        //         item.quantity = value
+        //     }
+        // })
+        setOnSale(_onSale)
+        // await setOnSale(onSale.forEach(item => {
+        //     if (item.title === title) {
+        //         item.quantity = value
+        //     }
+        // }))
+        sendBasket(onSale)
     }
 
-    const items = onSale.map((item) => {
+
+    const sendBasket = (onSale) => {
+        props.basketGetter(
+            onSale.filter(item => item.quantity > 0).length
+        )
+    }
+
+
+    let items = onSale.map((item) => {
         return (
             <Item key={item.title} data={item} clickHandler={quantityHandler} />
         )
     })
-
 
     return (
         <div className="component homeComponent">
